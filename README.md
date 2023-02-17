@@ -1,4 +1,5 @@
 # Mini-Project Lists
+- [Guess My Number](https://github.com/Tiangfuu23/My-Mini-Project#guess-my-number)
 ## Guess My Number
 #### This project was built with 
 - **HTML** 
