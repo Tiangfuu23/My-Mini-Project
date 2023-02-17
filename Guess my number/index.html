@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Link Font style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Link Favicon -->
+    <link rel="icon" href="content/favicon/favicon-32x32.png" />
+    <title>Guess my number</title>
+  </head>
+  <body>
+    <header>
+      <div class="heading-container">
+        <button class="btn again">Again!</button>
+        <p class="between">(Between 1 and <span class="range">20</span>)</p>
+      </div>
+      <h1 class="heading-primary">Guess My Number!</h1>
+      <div class="number">?</div>
+    </header>
+    <main>
+      <div class="left">
+        <input type="number" class="guess" />
+        <button class="btn check">Check!</button>
+      </div>
+      <div class="right">
+        <p class="message">Start guessing...</p>
+        <p class="label-score">
+          <ion-icon name="game-controller-outline" class="icon"></ion-icon>
+          Score: <span class="score">20</span>
+        </p>
+        <p class="label-highscore">
+          <ion-icon name="flash-outline" class="icon"></ion-icon>
+          Highscore: <span class="highscore">0</span>
+        </p>
+        <p class="label-level">
+          <ion-icon name="rocket-outline" class="icon"></ion-icon>
+          Level: <span class="level">1</span>
+        </p>
+      </div>
+    </main>
+    <!-- Script -->
+    <script src="script.js"></script>
+    <!-- ICON -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
