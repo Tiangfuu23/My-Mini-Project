@@ -2,7 +2,7 @@
 /* *** Global Var *** */
 let level = 1;
 let score = 20;
-let secretedNumber = Math.ceil(Math.random() * 20 * level);
+let secretedNumber = Math.ceil(Math.random() * 20 * Math.pow(2, level - 1));
 let highScore = 0;
 let isCorrect = false;
 /* ********* GENERAL FUNCTION ********* */
@@ -40,9 +40,10 @@ const startTheGame = function () {
   } else {
     level = 1;
   }
-  secretedNumber = getSecretedNumber(level * 20);
+  secretedNumber = Math.ceil(Math.random() * 20 * Math.pow(2, level - 1));
+  console.log(secretedNumber);
   document.querySelector(".level").textContent = level;
-  document.querySelector(".range").textContent = level * 20;
+  document.querySelector(".range").textContent = 20 * Math.pow(2, level - 1);
   // Animation
   scaleUpDown(".between");
   scaleUpDown(".label-level");

@@ -114,3 +114,29 @@
     padding: 0.8rem 1.2rem;
   }
 }
+/* Below 304px My phone :( - IP6 */
+@media (max-width: 19rem) {
+  .heading-primary {
+    font-size: 1.4rem;
+  }
+  .between {
+    font-size: 0.6rem;
+  }
+  .right {
+    font-size: 0.8rem;
+  }
+  .btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+    width: 8rem;
+  }
+  .guess {
+    width: 10rem;
+    height: 5rem;
+  }
+  .number {
+    padding: 1.4rem 0;
+    width: 7rem;
+    font-size: 3rem;
+  }
+} ;
