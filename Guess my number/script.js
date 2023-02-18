@@ -72,7 +72,12 @@ document.querySelector(".check").addEventListener("click", function () {
     // Change background
     document.querySelector("body").style.backgroundColor = "#60b347";
     document.querySelector(".number").textContent = secretedNumber;
-    document.querySelector(".number").style.width = "30rem";
+    // For dynamic purpose
+    const numberClWiddth = parseInt(
+      window.getComputedStyle(document.querySelector(".number")).width
+    );
+    // console.log(numberClWiddth, typeof numberClWiddth);
+    document.querySelector(".number").style.width = `${numberClWiddth * 2}px`;
     // update Status
     isCorrect = true;
     // update highscore
@@ -82,6 +87,7 @@ document.querySelector(".check").addEventListener("click", function () {
   // if player get wrong number
   else {
     displayMessage(userGuess > secretedNumber ? "Too hight" : "Too low");
+    scaleUpDown(".message");
     if (score > 0) decreaseScore();
     if (score === 0) gameOver();
   }

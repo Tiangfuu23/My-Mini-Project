@@ -104,6 +104,7 @@ main {
 }
 .message {
   margin-bottom: 8rem;
+  transition: all 0.3s;
 }
 .label-score,
 .label-highscore {

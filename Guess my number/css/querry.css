@@ -1,0 +1,116 @@
+/* 
+-FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+-SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+/* Below 1224px (smaller desktop) */
+@media (max-width: 76.5rem) {
+  .heading-primary {
+    font-size: 3.2rem;
+  }
+}
+/* Below 1056px (landscape tablet) */
+@media (max-width: 66rem) {
+  .heading-primary {
+    font-size: 2.4rem;
+  }
+  .right {
+    font-size: 1.8rem;
+  }
+  .number {
+    padding: 2.4rem 0;
+    width: 12rem;
+  }
+}
+/* Below 960px (tablet) */
+@media (max-width: 60rem) {
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+  }
+  .guess {
+    padding: 1.6rem;
+    width: 20rem;
+    text-align: center;
+  }
+  .btn {
+    padding: 1.5rem 3rem;
+  }
+  .check {
+    margin: 2rem;
+  }
+}
+/* Below 780px (small tablets) */
+@media (max-width: 48.75rem) {
+  .heading-primary {
+    font-size: 2rem;
+  }
+  .btn {
+    padding: 1.2rem 2.4rem;
+    font-size: 1.6rem;
+  }
+  .between {
+    font-size: 1.4rem;
+  }
+  .right {
+    font-size: 1.6rem;
+  }
+}
+/* Below 656px (smaller tablets */
+@media (max-width: 41rem) {
+  .heading-primary {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* Below 560px (phones) */
+@media (max-width: 35rem) {
+  .btn {
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+  }
+  .guess {
+    padding: 1.2rem;
+    width: 16rem;
+  }
+  .right {
+    font-size: 1.4rem;
+  }
+  .number {
+    padding: 1.8rem 0;
+    width: 10rem;
+    font-size: 5rem;
+  }
+}
+/* Below 500px (small phones) */
+@media (max-width: 31.25rem) {
+  .between {
+    font-size: 1.2rem;
+  }
+  .guess {
+    padding: 0.8rem;
+    width: 16rem;
+  }
+  .btn {
+    padding: 1rem 1.5rem;
+  }
+}
+/* Below 416px (super small phones */
+@media (max-width: 26rem) {
+  .heading-primary {
+    font-size: 1.8rem;
+  }
+  .between {
+    font-size: 1rem;
+  }
+  .guess {
+    padding: 0.8rem 0.4rem;
+    width: 14rem;
+  }
+  .btn {
+    padding: 0.8rem 1.2rem;
+  }
+}
