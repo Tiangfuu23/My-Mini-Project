@@ -21,6 +21,8 @@ html {
   box-sizing: border-box;
   /* 62.5% -> 10px */
   font-size: 62.5%;
+  position: relative;
+  overflow: hidden;
 }
 body {
   font-family: "Press Start 2P", cursive;
@@ -116,4 +118,52 @@ main {
 /* Animation */
 .scale-up {
   transform: scale(1.1);
+}
+/* Modal window */
+.hidden {
+  display: none;
+}
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  position: absolute;
+  top: 0;
+  z-index: 5;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  background-color: rgba(204, 204, 204);
+  box-shadow: 0 3rem 5rem rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  color: #444;
+  width: 50%;
+  padding: 7rem;
+  z-index: 999;
+}
+.modal p {
+  font-size: 1.4rem;
+}
+.icon-close-modal {
+  font-size: 2.4rem;
+}
+.btn-modal {
+  position: absolute;
+  top: -2.5rem;
+  right: -3.9rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.btn-modal:hover {
+  transform: scale(1.1);
+}
+.go-to-right {
+  transform: translateX(100%);
+  transition: all 0.4s ease-in;
 }

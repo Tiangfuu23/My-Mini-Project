@@ -9,6 +9,9 @@
   .heading-primary {
     font-size: 3.2rem;
   }
+  .modal p {
+    font-size: 1.2rem;
+  }
 }
 /* Below 1056px (landscape tablet) */
 @media (max-width: 66rem) {
@@ -21,6 +24,9 @@
   .number {
     padding: 2.4rem 0;
     width: 12rem;
+  }
+  .modal {
+    padding: 7rem 3.5rem;
   }
 }
 /* Below 960px (tablet) */
@@ -58,12 +64,25 @@
   .right {
     font-size: 1.6rem;
   }
+  .modal {
+    padding: 6rem 3rem;
+  }
+  .modal p {
+    font-size: 1rem;
+  }
 }
 /* Below 656px (smaller tablets */
 @media (max-width: 41rem) {
   .heading-primary {
     width: 100%;
     text-align: center;
+  }
+  .modal {
+    padding: 4rem 1rem;
+    width: 70vh;
+  }
+  .modal p {
+    font-size: 1rem;
   }
 }
 /* Below 560px (phones) */
@@ -96,6 +115,9 @@
   }
   .btn {
     padding: 1rem 1.5rem;
+  }
+  .btn-modal {
+    right: -3rem;
   }
 }
 /* Below 416px (super small phones */
@@ -138,5 +160,12 @@
     padding: 1.4rem 0;
     width: 7rem;
     font-size: 3rem;
+  }
+  .modal {
+    width: 75%;
+    padding: 3rem 1rem;
+  }
+  .modal p {
+    line-height: 1.6;
   }
 } ;
