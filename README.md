@@ -1,6 +1,6 @@
 # Mini-Project Lists
 - [Guess My Number](https://github.com/Tiangfuu23/My-Mini-Project#guess-my-number)
-- [Pig Game](https://github.com/Tiangfuu23/My-Mini-Project/edit/main/README.md#pig-game)
+- [Pig Game](https://github.com/Tiangfuu23/My-Mini-Project/#pig-game)
 ## Guess My Number
 #### This project was built with 
 - **HTML** 
