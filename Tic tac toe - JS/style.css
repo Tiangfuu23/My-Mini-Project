@@ -1,0 +1,198 @@
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+*/
+/* GLOBAL RESET */
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  box-sizing: inherit;
+  font-size: 62.5%; /* 1 rem = 10px */
+  font-family: "Permanent Marker", cursive;
+}
+/* CSS Variables - Custom properties */
+:root {
+  --cell-size: 10rem;
+  --cell-mark: calc(var(--cell-size) * 0.9);
+  /* LIGHT THEME */
+  --color-main-text: #000;
+  --color-light-main-bg: #fff;
+  --color-light-bg: #fff;
+  --color-light-hover: lightgrey;
+  --color-light-set: #000;
+  --color-light-bg-overlay: rgba(0, 0, 0, 0.9);
+  --color-light-bg-btn-hover: #424242;
+}
+main {
+  position: relative;
+  /* overflow: hidden; */
+  background-color: var(--color-light-main-bg);
+}
+.board {
+  width: 100vw;
+  height: 100vh;
+  margin: auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+}
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 1px solid var(--color-light-set);
+  cursor: pointer;
+  position: relative;
+  /* Because we can not set width and height of inline element */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* justify-content: center; */
+  /* alig */
+}
+/* Remove border */
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+  border-left: none;
+}
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+  border-bottom: none;
+}
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+  border-right: none;
+}
+/* Custom X mark */
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.o):hover::before,
+.board.x .cell:not(.x):not(.o):hover::after {
+  content: "";
+  width: calc(var(--cell-mark) * 0.15);
+  height: var(--cell-mark);
+  background-color: var(--color-light-set);
+  position: absolute;
+  /* display: inline-block; */
+}
+.cell.x,
+.cell.o {
+  cursor: not-allowed;
+}
+.cell.x::before,
+.board.x .cell:not(.x):not(.o):hover::before {
+  transform: rotate(45deg);
+}
+.cell.x::after,
+.board.x .cell:not(.x):not(.o):hover::after {
+  transform: rotate(-45deg);
+}
+
+/* Custom O mark */
+
+.cell.o::before,
+.cell.o::after,
+.board.o .cell:not(.x):not(.o):hover::before,
+.board.o .cell:not(.x):not(.o):hover::after {
+  content: "";
+  border-radius: 50%;
+  background-color: var(--color-light-set);
+  position: absolute;
+}
+.cell.o::before,
+.board.o .cell:not(.x):not(.o):hover::before {
+  width: var(--cell-mark);
+  height: var(--cell-mark);
+}
+.cell.o::after,
+.board.o .cell:not(.x):not(.o):hover::after {
+  width: calc(var(--cell-mark) * 0.8);
+  height: calc(var(--cell-mark) * 0.8);
+  background-color: var(--color-light-bg);
+}
+/* Custom hover effect */
+.board.x .cell:not(.x):not(.o):hover::before,
+.board.x .cell:not(.x):not(.o):hover::after,
+.board.o .cell:not(.x):not(.o):hover::before {
+  background-color: var(--color-light-hover);
+}
+/* Winning message */
+.hidden {
+  display: none !important;
+}
+.overlay {
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  position: absolute;
+  background-color: var(--color-light-bg-overlay);
+  backdrop-filter: blur(2px);
+  top: 0;
+  left: 0;
+}
+.winning-msg {
+  z-index: 999;
+  width: 25vw;
+  height: 25vh;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  color: var(--color-main-text);
+}
+.msg {
+  font-size: 5.2rem;
+  color: white;
+}
+.btn-main {
+  position: absolute;
+}
+.btn {
+  background-color: var(--color-light-bg);
+  font-size: 3.6rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 1.5rem;
+  font-family: inherit;
+  color: var(--color-main-text);
+}
+.btn:hover {
+  background-color: var(--color-light-bg-btn-hover);
+  color: var(--color-light-bg);
+}
+/* THEME SECTION */
+.theme-icon {
+  font-size: 3rem;
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  color: var(--color-main-text);
+}
+.btn-theme {
+  cursor: pointer;
+}

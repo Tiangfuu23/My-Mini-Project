@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FONT FAMILY -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Favicon -->
+    <link rel="icon" href="image/Favicon/favicon.ico" />
+    <!-- Link CSS file -->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+    <main>
+      <button class="btn btn-restart btn-main">Restart</button>
+      <div class="board">
+        <div class="cell cell-1"></div>
+        <div class="cell cell-2"></div>
+        <div class="cell cell-3"></div>
+        <div class="cell cell-4"></div>
+        <div class="cell cell-5"></div>
+        <div class="cell cell-6"></div>
+        <div class="cell cell-7"></div>
+        <div class="cell cell-8"></div>
+        <div class="cell cell-9"></div>
+      </div>
+      <div class="overlay"></div>
+      <div class="winning-msg modal hidden">
+        <p class="msg"><span class="player-msg">X</span>'s Win!</p>
+        <button class="btn btn-restart">Restart</button>
+      </div>
+      <div class="theme">
+        <button class="btn-light-theme btn-theme">
+          <ion-icon
+            name="partly-sunny-outline"
+            class="theme-icon light-theme-icon hidden"
+          ></ion-icon>
+        </button>
+        <button class="btn-dark-theme btn-theme">
+          <ion-icon
+            name="moon-outline"
+            class="theme-icon dark-theme-icon"
+          ></ion-icon>
+        </button>
+      </div>
+    </main>
+    <!-- Javascript File -->
+    <script src="script.js"></script>
+    <!-- ICONIC  -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
