@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Calculator</title>
+    <!-- Favicon -->
+    <link rel="icon" href="Image/favicon.ico" />
+    <!-- Link font-family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link css file -->
+    <link href="style.css" rel="stylesheet" />
+    <!-- Link JS file -->
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <div class="calculator">
+        <div class="calculator-display">
+          <div class="current-operand"></div>
+        </div>
+        <div class="calculator-key">
+          <button class="btn span-2" data-action="clear">AC</button>
+          <button class="btn" data-action="delete">DEL</button>
+          <button class="btn operator-key" data-action="divide">÷</button>
+          <button class="btn">1</button>
+          <button class="btn">2</button>
+          <button class="btn">3</button>
+          <button class="btn operator-key" data-action="multiply">*</button>
+          <button class="btn">4</button>
+          <button class="btn">5</button>
+          <button class="btn">6</button>
+          <button class="btn operator-key" data-action="add">+</button>
+          <button class="btn">7</button>
+          <button class="btn">8</button>
+          <button class="btn">9</button>
+          <button class="btn operator-key" data-action="substract">-</button>
+          <button class="btn" data-action="decimal">.</button>
+          <button class="btn">0</button>
+          <button class="btn span-2 equal-key" data-action="calculate">
+            =
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
