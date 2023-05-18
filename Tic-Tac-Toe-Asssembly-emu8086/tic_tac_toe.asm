@@ -121,7 +121,10 @@
         taken_str DB 'This cell is taken! Press any key...$'
         ; THIS LINE IS USED TO OVERWIRTE A LINE TO CLEAN THE AREA
         EMP DB '                                        $'
-                 
+   
+    ;STRING FOR TRY AGAIN SECTION
+        ; TRY AGAIN PROMPT MESSAGES -----------------------------
+        TRA DB 'Want to play again? (y/n): $'               
 ;******** DEFINE CODE SEGMENT *******;        
 .code
     MAIN proc
@@ -130,9 +133,33 @@
         mov ds,ax
         jmp LOGO
         
+        ; ---------- INITIALIZE ---------------------
+       
+         INIT: 
+               
+                MOV current_player, 49     ; INITIALIZING ALL VARIABLES
+                MOV MOVES, 0  
+                MOV isWin, 0
+                MOV isDraw, 0 
+                
+                MOV C1, 49
+                MOV C2, 50
+                MOV C3, 51
+                MOV C4, 52
+                MOV C5, 53
+                MOV C6, 54
+                MOV C7, 55
+                MOV C8, 56
+                MOV C9, 57
+                                                      
+                JMP BOARD
+
+       ; ---------- INITIALIZATION ENDS --------------
+        
+        
         ;******* DISPLAY WINNER ***********
         VICTORY:
-    
+            go_to_xy 18,29
             
             LEA DX, player
             MOV AH, 09h
@@ -147,7 +174,7 @@
             INT 21H
             
             ;set cursor position at row = 20 col = 23
-            go_to_xy 20,23  
+            go_to_xy 20,26  
                 
             LEA DX, press_any_key  ; PRESS ANY KEY
             MOV AH, 9
@@ -157,21 +184,20 @@
             INT 21H    
             
             ;JMP TRYAGAIN
-            jmp terminate
+            jmp TRYAGAIN
                 
         ;******* DISPLAY WINNER END ***********
         
         ;******* DISPLAY DRAWING STATE ***********
-            
-            go_to_xy 20,39
-            
-            DRAW:
+         DRAW:   
+            go_to_xy 18,31
+                
             LEA DX, draw_str
             MOV AH, 09h
             INT 21H 
             
             ;set cursor position at row = 20 col = 23
-            go_to_xy 20,23
+            go_to_xy 20,26
                 
             LEA DX, press_any_key ; PRESS ANY KEY
             MOV AH, 09h
@@ -181,7 +207,7 @@
             INT 21H    
             
             ;JMP TRYAGAIN  
-            jmp terminate
+            jmp TRYAGAIN
         
         
         
@@ -853,7 +879,138 @@
                         MOV current_char, 79     ; ; current_char <- 'O'
                         JMP BOARD
     main endp
+                 ; SETTING BOARD POSITION AS INPUT MARK
+        C1U:
+            CMP C1, 88  ; CHECKING IF THE CELL IS ALREADY 'X'
+            JZ TAKEN
+            CMP C1, 79  ; CHECKING IF THE CELL IS ALREADY 'O'
+            JZ TAKEN 
+            
+            MOV C1, CL
+            JMP CHECK
+             
+        C2U:
+            CMP C2, 88  ; CHECKING IF THE CELL IS ALREADY 'X'
+            JZ TAKEN
+            CMP C2, 79  ; CHECKING IF THE CELL IS ALREADY 'O'
+            JZ TAKEN 
+            
+            MOV C2, CL
+            JMP CHECK
+        C3U:
+            CMP C3, 88  ; CHECKING IF THE CELL IS ALREADY 'X'
+            JZ TAKEN
+            CMP C3, 79  ; CHECKING IF THE CELL IS ALREADY 'O'
+            JZ TAKEN 
+            
+            MOV C3, CL
+            JMP CHECK
+        C4U: 
+            CMP C4, 88  ; CHECKING IF THE CELL IS ALREADY 'X'
+            JZ TAKEN
+            CMP C4, 79  ; CHECKING IF THE CELL IS ALREADY 'O'
+            JZ TAKEN 
+            
+            MOV C4, CL
+            JMP CHECK 
+        C5U: 
+            CMP C5, 88  ; CHECKING IF THE CELL IS ALREADY 'X'
+            JZ TAKEN
+            CMP C5, 79  ; CHECKING IF THE CELL IS ALREADY 'O'
+            JZ TAKEN 
+            
+            MOV C5, CL
+            JMP CHECK
+        C6U:
+            CMP C6, 88  ; CHECKING IF THE CELL IS ALREADY 'X'
+            JZ TAKEN
+            CMP C6, 79  ; CHECKING IF THE CELL IS ALREADY 'O'
+            JZ TAKEN 
+            
+            MOV C6, CL
+            JMP CHECK
+        C7U: 
+            CMP C7, 88   ; CHECKING IF THE CELL IS ALREADY 'X'
+            JZ TAKEN
+            CMP C7, 79   ; CHECKING IF THE CELL IS ALREADY 'O'
+            JZ TAKEN 
+            
+            MOV C7, CL
+            JMP CHECK 
+        C8U: 
+            CMP C8, 88   ; CHECKING IF THE CELL IS ALREADY 'X'
+            JZ TAKEN
+            CMP C8, 79   ; CHECKING IF THE CELL IS ALREADY 'O'
+            JZ TAKEN 
+            
+            MOV C8, CL
+            JMP CHECK
+        C9U:
+            CMP C9, 88   ; CHECKING IF THE CELL IS ALREADY 'X'
+            JZ TAKEN
+            CMP C9, 79   ; CHECKING IF THE CELL IS ALREADY 'O'
+            JZ TAKEN 
+            
+            MOV C9, CL
+            JMP CHECK
+; --------------------------------            
+            
+
+; ----------- TRY AGAIN SECTION ( TAT-18/05/2023)-----------
     
+        TRYAGAIN:
+                clear_screen  
+                
+                go_to_xy 10,24
+            
+            
+                LEA DX, TRA   ; TRY AGAIN PROMPT
+                MOV AH, 9 
+                INT 21H
+                
+                MOV AH, 1     
+                INT 21H
+                
+                CMP AL, 121  ; CHECK IF INPUT IS 'y'
+                JZ INIT 
+                
+                CMP AL, 89   ; CHECK IF INPUT IS 'Y'
+                JZ INIT
+                
+                ; IF INPUT IS 'Y'/'y' THEN REPEAT THE GAME
+                
+                CMP AL, 110  ; CHECK IF INPUT IS 'n'
+                JZ terminate
+                CMP AL, 78   ; CHECK IF INPUT IS 'N'
+                JZ terminate  
+                
+                ; IF INPUT IS 'N'/'n' THEN EXIT THE GAME
+                
+                
+                ; IF INPUT IS INVALID
+                
+                go_to_xy 10,24
+                
+                LEA DX, WI  ; WRONG INPUT MESSAGE
+                MOV AH, 9
+                INT 21H 
+                
+                MOV AH, 7 ; INPUT WITHOUT ECHO
+                INT 21H
+                    
+                go_to_xy 10,24
+                
+                LEA DX, EMP  ; EMPTY LINE TO OVERWRITE ANOTHER LINE TO CLEAN THE SPACE
+                MOV AH, 9
+                INT 21H
+            
+            
+            
+            JMP TRYAGAIN ; PROMPT THE TRY AGAIN     
+        
+    
+    ; ----------- END OF TRY AGAIN SECTION -------- 
+
     terminate: 
        mov ah,4ch
        int 21h
